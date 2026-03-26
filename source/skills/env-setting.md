@@ -11,24 +11,34 @@ Before executing any browser action, resolve values in this order:
 Use this setup:
 
 ```bash
-# Load ./.env if present
+# Load .env if present, and export loaded variables
 if [ -f ./.env ]; then
-	set -a
-	. ./.env
-	set +a
+  set -a
+  . ./.env
+  set +a
 fi
 
-# Apply defaults only when values are not provided
+# Apply defaults only when variables are empty
 if [ -z "$tenant_name" ]; then
-	tenant_name="https://sta.in.qlikcloud.com"
+  tenant_name="https://sta.in.qlikcloud.com"
 fi
 
 if [ -z "$username" ]; then
-	username="harley@qlik.example"
+  username="harley@qlik.example"
 fi
 
 if [ -z "$password" ]; then
-	password="Password1!"
+  password="Password1!"
+fi
+
+# Print status (without exposing password value)
+echo "tenant_name=$tenant_name"
+echo "username=$username"
+
+if [ -n "$password" ]; then
+  echo "password set: yes"
+else
+  echo "password set: no"
 fi
 
 export tenant_name

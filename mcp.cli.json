@@ -16,5 +16,7 @@
         	"./"
       	]
     	},
-	"inputs": []
+	"inputs": [],
+    "systemContext": "See source/skills/workflow.md for project structure before reading any test or skill files"
+
 }

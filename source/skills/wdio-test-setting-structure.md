@@ -18,6 +18,7 @@ Use this skill when the user asks to:
 - **Verify web workflows** using `<***Test.prompt.md>` → Following `source/skills/workflow.md`, verify web workflows using `<***Test.prompt.md>`
 - **Reproduce UI bugs** using `<***Test.prompt.md>` → Following `source/skills/workflow.md`, reproduce UI bugs using `<***Test.prompt.md>`
 - **Validate frontend behavior** using `<***Test.prompt.md>` → Following `source/skills/workflow.md`, validate frontend behavior using `<***Test.prompt.md>`
+- **Execute** `<summaryReport.prompt.md>` → Following `source/skills/summary-report.md`, execute `<summaryReport.prompt.md>`
 
 ## Running Multiple Tests
 
@@ -58,19 +59,25 @@ Located at `source/prompts/shared/`
 
 Located at `source/prompts/tests/`
 
-#Test Report Creation
-Test reports are located at `report_dir`.
+# Test Report Creation
+Test log reports and summary.html report are located at `report_dir`.
 
+## Test report log
 Each test has its own log file under `report_dir`, named after the test file. For example, the test `gotoCatalogTest.prompt.md` will create a report log file at `report_dir/gotoCatalogTest.log`.
 
-### Test Report Structure
+## Post All Tests Execution: Generate Summary Report
+
+Following `summary-report.md`, after all test log files have been written to `report_dir`, generate a single HTML summary report. The summary report will be generated at `report_dir/summary.html`.
+
+## Test Report Structure
 
 ```
 Reports/
 └── tests_20260309_142530/
     ├── test1.log
     ├── test2.log
-    └── ...
+    ├── ....
+    └── summary.html
 ```
 
 ---
@@ -80,5 +87,5 @@ Reports/
 **Example:**
 
 ```bash
-copilot --additional-mcp-config @mcp.cli.json --allow-all-tools --prompt "execute createSpaceTest.prompt.md gotoCatalogTest.prompt.md"
+copilot --additional-mcp-config @mcp.cli.json --allow-all-tools --prompt "execute createSpaceTest.prompt.md gotoCatalogTest.prompt.md gotoCatalogSimpleVersionTest.prompt.md"
 ```

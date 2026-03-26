@@ -55,11 +55,12 @@ Execute the test steps defined in the test prompt file(s) using the variables ca
 
 After all test log files have been written to `report_dir`, generate a single HTML summary report.
 
-Following `summary-report.md` to generate summary.html after tests execution, run the auto-generation `./scripts/autoGenerateSummaryReport.js`:
+### Automatic Generation (Recommended)
 
+Run the auto-generation helper script:
 
 ```bash
-node ./scripts/autoGenerateSummaryReport.js 
+node ./scripts/autoGenerateSummaryReport.js
 ```
 
 This script automatically:
@@ -67,3 +68,17 @@ This script automatically:
 - Generates `summary.html` in that directory
 - Displays the report file path
 
+### Manual Generation
+
+If needed, you can manually generate the report for a specific directory:
+
+```bash
+node ./scripts/generateLogSummaryReport.js <report_dir>
+```
+
+Replace `<report_dir>` with the actual path, e.g.:
+```bash
+node ./scripts/generateLogSummaryReport.js Reports/tests_20260326_101253
+```
+
+For more details, see `summary-report.md`.
