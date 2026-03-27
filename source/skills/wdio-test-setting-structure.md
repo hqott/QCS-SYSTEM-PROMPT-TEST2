@@ -87,5 +87,5 @@ Reports/
 **Example:**
 
 ```bash
-copilot --additional-mcp-config @mcp.cli.json --allow-all-tools --prompt "execute createSpaceTest.prompt.md gotoCatalogTest.prompt.md gotoCatalogSimpleVersionTest.prompt.md"
+copilot --additional-mcp-config @mcp.cli.json --allow-all-tools --prompt "execute createSpaceTest.prompt.md gotoCatalogTest.prompt.md summaryReport.prompt.md"
 ```
